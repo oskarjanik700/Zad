@@ -1,1 +1,2 @@
-# Zad
+# Singleton
+# Dekorator
