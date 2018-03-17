@@ -1,1 +1,1 @@
-# Zad
+# Singleton
