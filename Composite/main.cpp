@@ -2,7 +2,6 @@
 #include <vector>
 using namespace std;
 
-// 2. Create an "interface" (lowest common denominator)
 class Component
 {
   public:
@@ -11,34 +10,34 @@ class Component
 
 class Leaf: public Component
 {
-    // 1. Scalar class   3. "isa" relationship
-    int value;
+
+    int val;
   public:
-    Leaf(int val)
+    Leaf(int v)
     {
-        value = val;
+        val = v;
     }
     void traverse()
     {
-        cout << value << ' ';
+        cout << val << ' ';
     }
 };
 
 class Composite: public Component
 {
-    // 1. Vector class   3. "isa" relationship
-    vector < Component * > children; // 4. "container" coupled to the interface
+
+    vector < Component * > child;
   public:
-    // 4. "container" class coupled to the interface
-    void add(Component *ele)
+
+    void add(Component *e)
     {
-        children.push_back(ele);
+        child.push_back(e);
     }
     void traverse()
     {
-        for (int i = 0; i < children.size(); i++)
-        // 5. Use polymorphism to delegate to children
-          children[i]->traverse();
+        for (int i = 0; i < child.size(); i++)
+
+          child[i]->traverse();
     }
 };
 
