@@ -6,7 +6,7 @@ using namespace std;
 
 class Base
 {
-    Base *next; // 1. "next" pointer in the base class
+    Base *next;
   public:
     Base()
     {
@@ -23,7 +23,7 @@ class Base
         else
           next = n;
     }
-    // 2. The "chain" method in the base class always delegates to the next obj
+
     virtual void handle(int i)
     {
         next->handle(i);
@@ -33,46 +33,46 @@ class Base
 class Handler1: public Base
 {
   public:
-     /*virtual*/void handle(int i)
+     void handle(int i)
     {
         if (rand() % 3)
         {
-            // 3. Don't handle requests 3 times out of 4
-            cout << "H1 passed " << i << "  ";
-            Base::handle(i); // 3. Delegate to the base class
+
+            cout << "E1 passed " << i << "  ";
+            Base::handle(i);
         }
         else
-          cout << "H1 handled " << i << "  ";
+          cout << "E1 handled " << i << "  ";
     }
 };
 
 class Handler2: public Base
 {
   public:
-     /*virtual*/void handle(int i)
+     void handle(int i)
     {
         if (rand() % 3)
         {
-            cout << "H2 passed " << i << "  ";
+            cout << "E2 passed " << i << "  ";
             Base::handle(i);
         }
         else
-          cout << "H2 handled " << i << "  ";
+          cout << "E2 handled " << i << "  ";
     }
 };
 
 class Handler3: public Base
 {
   public:
-     /*virtual*/void handle(int i)
+     void handle(int i)
     {
         if (rand() % 3)
         {
-            cout << "H3 passed " << i << "  ";
+            cout << "E3 passed " << i << "  ";
             Base::handle(i);
         }
         else
-          cout << "H3 handled " << i << "  ";
+          cout << "E3 handled " << i << "  ";
     }
 };
 
